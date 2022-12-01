@@ -1,0 +1,101 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+    <div><%= program.week %></div>
+    <div><%= program.day %></div>
+</section>
+
+<table>
+    <form method="POST" action="/programs/<%= program._id %>/exercises">
+    <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Reps</th>
+        <th scope="col">Load</th>
+        <th scope="col">Actual Reps</th>
+        <th scope="col">Actual Load</th>
+    </tr>
+    <tr>
+        <td>
+            <select id="cat" name="category">
+            <option value="Squat">Squat</option>
+            <option value="Bench">Bench</option>
+            <option value="Deadlift">Deadlift</option>
+            <option value="Push">Push</option>
+            <option value="Pull">Pull</option>
+            <option value="Hip">Hip</option>
+            </select>
+        </td>
+        <td>
+            <select name="name" id="name">
+            </select>
+        </td>
+        <td> 
+            <label>
+                <input name="reps" type="text">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="load" type="text">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="actual_reps" type="text">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="actual_load" type="text">
+            </label>
+        </td>
+        <td><button>Add Exercise</button></td>
+    </tr>
+    </form>
+</table>
+
+<% if (program.exercises.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Category</th>
+          <th>Name</th>
+          <th>Reps</th>
+          <th>Load</th>
+          <th>Actual Reps</th>
+          <th>Actual Load</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% program.exercises.forEach(function(e, index) { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= e.category %></td>
+            <td><%= e.name %></td>
+            <td><%= e.reps %></td>
+            <td><%= e.load %></td>
+            <td><%= e.actual_reps %></td>
+            <td><%= e.actual_load %></td>
+            <td>
+              <a href="/programs/<%= program.id %>/exercises/<%= e.id %>">
+                <button>
+                  ✎
+                </button>
+              </a>
+            </td>
+            <td>
+              <form action="/programs/<%= program.id %>/exercises/<%= e.id %>?_method=Delete" method="POST">
+                <button>
+                  ␡
+                </button>
+              </form> 
+            </td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<% } %>
+
+<%- include('../partials/footer') %>

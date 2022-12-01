@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<table>
+    </tr>
+        <% programs.forEach(function(p) { %>
+            <tr>
+              <td><%= p.week %></td>
+              <td><%= p.day %></td>
+              <td><a href="/programs/<%= p._id %>">Details</a></td>
+            </tr>
+          <% }); %>
+    </tbody>
+</table>
+
+
+<%- include('../partials/footer') %>

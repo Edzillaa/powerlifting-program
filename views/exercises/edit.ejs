@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+<table>
+  <form  method="POST" action="/programs/<%= program._id %>/exercises/<%= exercise._id %>?_method=PUT">
+    <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Reps</th>
+        <th scope="col">Load</th>
+        <th scope="col">Actual Reps</th>
+        <th scope="col">Actual Load</th>
+    </tr>
+    <tr>
+        <td>
+            <select id="cat" name="category">
+            <option value="Squat">Squat</option>
+            <option value="Bench">Bench</option>
+            <option value="Deadlift">Deadlift</option>
+            <option value="Push">Push</option>
+            <option value="Pull">Pull</option>
+            <option value="Hip">Hip</option>
+            </select>
+        </td>
+        <td>
+            <select name="name" id="name" value="<%= exercise.name %>">
+            </select>
+        </td>
+        <td> 
+            <label>
+                <input name="reps" type="text" value="<%= exercise.reps %>">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="load" type="text" value="<%= exercise.load %>">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="actual_reps" type="text" value="<%= exercise.actual_reps %>">
+            </label>
+        </td>
+        <td> 
+            <label>
+                <input name="actual_load" type="text" value="<%= exercise.actual_load %>">
+            </label>
+        </td>
+        <td><button>Edit</button></td>
+    </tr>
+  </form>
+</table>
+
+<% if (program.exercises.length) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Name</th>
+          <th>Reps</th>
+          <th>Load</th>
+          <th>Actual Reps</th>
+          <th>Actual Load</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= exercise.category %></td>
+            <td><%= exercise.name %></td>
+            <td><%= exercise.reps %></td>
+            <td><%= exercise.load %></td>
+            <td><%= exercise.actual_reps %></td>
+            <td><%= exercise.actual_load %></td>
+        </tr>
+    </tbody>
+</table>
+<% } %>
+
+<%- include('../partials/footer') %>

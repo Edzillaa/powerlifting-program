@@ -1,0 +1,41 @@
+<%- include('../partials/header') %>
+
+<h2>Pick the day and week: </h2>
+<form action="/programs" method="POST">
+    <label>WEEK:
+        <nav >
+        <select option name="week">
+            <option value="WEEK 1">1</option>
+            <option value="WEEK 2">2</option>
+            <option value="WEEK 3">3</option>
+            <option value="WEEK 4">4</option>
+            <option value="WEEK 5">5</option>
+            <option value="WEEK 6">6</option>
+            <option value="WEEK 7">7</option>
+        </select>  
+    </label><br>
+    <label>DAY:
+        <select option name="day">
+            <option value="DAY 1">1</option>
+            <option value="DAY 2">2</option>
+            <option value="DAY 3">3</option>
+            <option value="DAY 4">4</option>
+            <option value="DAY 5">5</option>
+            <option value="DAY 6">6</option>
+        </nav>
+        </select>
+    </label><br>
+    <!-- <h2>Calculate your 1RM:</h2>
+    <label> SQUAT:
+        <input type="number" name="flightNo">
+    </label><br>
+    </label>BENCH: 
+        <input type="number" name="flightNo">
+    </label><br>
+    <label>DEADLIFT:
+        <input type="number" name="flightNo">
+    </label><br> -->
+  <input type="submit" value="Select DAY and WEEK">
+</form>
+
+<%- include('../partials/footer') %>
