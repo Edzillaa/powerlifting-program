@@ -5,6 +5,7 @@
     <tr>
         <th scope="col">Category</th>
         <th scope="col">Name</th>
+        <th scope="col">Sets</th>
         <th scope="col">Reps</th>
         <th scope="col">Load</th>
         <th scope="col">Actual Reps</th>
@@ -16,14 +17,19 @@
             <option value="Squat">Squat</option>
             <option value="Bench">Bench</option>
             <option value="Deadlift">Deadlift</option>
-            <option value="Push">Push</option>
+            <!-- <option value="Push">Push</option>
             <option value="Pull">Pull</option>
-            <option value="Hip">Hip</option>
+            <option value="Hip">Hip</option> -->
             </select>
         </td>
         <td>
             <select name="name" id="name" value="<%= exercise.name %>">
             </select>
+        </td>
+        <td> 
+            <label>
+                <input name="sets" type="text" value="<%= exercise.sets %>">
+            </label>
         </td>
         <td> 
             <label>
@@ -56,6 +62,7 @@
         <tr>
           <th>Category</th>
           <th>Name</th>
+          <th>Sets</th>
           <th>Reps</th>
           <th>Load</th>
           <th>Actual Reps</th>
@@ -66,6 +73,7 @@
           <tr>
             <td><%= exercise.category %></td>
             <td><%= exercise.name %></td>
+            <td><%= exercise.sets %></td>
             <td><%= exercise.reps %></td>
             <td><%= exercise.load %></td>
             <td><%= exercise.actual_reps %></td>

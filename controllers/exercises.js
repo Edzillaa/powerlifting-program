@@ -27,6 +27,7 @@ function update(req, res) {
     Program.findById(req.params.pId, function(err, program) {
         program.exercises.id(req.params.eId).category = req.body.category
         program.exercises.id(req.params.eId).name = req.body.name
+        program.exercises.id(req.params.eId).sets = req.body.sets
         program.exercises.id(req.params.eId).reps = req.body.reps
         program.exercises.id(req.params.eId).load = req.body.load
         program.exercises.id(req.params.eId).actual_reps = req.body.actual_reps

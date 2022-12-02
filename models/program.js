@@ -6,8 +6,10 @@ const exerciseSchema = new Schema({
         type: String,
     },
     name: {
+        type: String, 
+    },
+    sets: {
         type: String,
-        
     },
     reps: { 
         type: Number,
